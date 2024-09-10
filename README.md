@@ -43,6 +43,6 @@ With your payload and the following header:
 ```json
 {
   "alg": "ES256",
-  "typ": "JWT"
+  "typ": "jwt"
 }
 ```

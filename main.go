@@ -61,6 +61,9 @@ func readJWTAssertion(filename string) (map[string]any, error) {
 func createToken(claims map[string]any, key any) (string, error) {
 	token := jwt.NewWithClaims(jwt.SigningMethodES256, jwt.MapClaims(claims))
 
+	// Sign with jwt instead of JWT
+	token.Header["typ"] = "jwt"
+
 	tokenString, err := token.SignedString(key)
 	if err != nil {
 		return "", err
